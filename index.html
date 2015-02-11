@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no" />
+		<title>My Goals</title>
+		<!-- Building blocks -->
+		<link rel="stylesheet" href="style/buttons.css">
+		<link rel="stylesheet" href="style/headers.css">
+		<link rel="stylesheet" href="style/input_areas.css">
+		<link rel="stylesheet" href="style/drawer.css">
+		<link rel="stylesheet" href="style/lists.css">
+	
+		<!-- Transitions -->
+		<link rel="stylesheet" href="transitions.css">
+	  
+		<!-- Util CSS: some extra tricks -->
+		<link rel="stylesheet" href="util.css">
+		<link rel="stylesheet" href="fonts.css">
+	
+		<!-- Additional markup to make Building Blocks kind of cross browser -->
+		<link rel="stylesheet" href="cross_browser.css">
+		
+		<link rel="stylesheet" href="style/app.css">
+	</head>
+	
+	<body>
+		<section id="index" data-position="current">
+			<section data-type="sidebar">
+				<header>
+					<menu type="toolbar">
+						<a href="#">Done</a>
+					</menu>
+					<h1>My Goals <em>0.5</em></h1>
+				</header>
+				<nav>
+					<ul>
+						<li><a id="clearStorage" href="#">Remove all</a></li>
+						<li><a id="btn-about" href="#">About</a></li>
+					</ul>
+				</nav>
+		    </section>
+			<section id="drawer" role="region">
+				<header class="fixed">
+					<a href="#"><span class="icon icon-menu">hide sidebar</span></a>
+        			<a href="#drawer"><span class="icon icon-menu">show sidebar</span></a>
+					<menu type="toolbar">
+						<a id="btn-addgoal" href="#"><span class="icon icon-add">add</span></a>
+					</menu>
+					<h1>My Goals <em>0.5</em></h1>
+				</header>
+				<article class="content scrollable header">
+					<section data-type="list">
+						<header>Goals</header>
+						<ul id="goals">
+							
+						</ul>
+					</section>
+					
+					<section data-type="list">
+						<header>Achieved</header>
+						<ul id="achieved">
+							
+						</ul>
+					</section>
+				</article>
+			</section> <!-- end drawer -->
+		</section> <!-- end index -->
+		
+
+		<!--·························· Add goal ··························-->
+		<section role="region" id="addgoal" data-position="right">
+			<header class="fixed">
+				<a id="btn-addgoal-back" href="#"><span class="icon icon-back">back</span></a>
+				<h1>Add goal</h1>
+			</header>
+			<article class="content scrollable header">
+				<br>
+				<form id="form-add">
+					<p>
+						<input type="text" placeholder="Title" id="title_input">
+					</p>
+
+					<p>
+						<textarea placeholder="About" id="about_input"></textarea>
+					</p>
+					
+					<br>
+					<p>
+						Color:
+						<select id="goal_color_add">
+							<option value="LightGoldenRodYellow">Yellow</option> <!-- #FAFAD2 -->
+							<option value="PaleGreen">Green</option> <!-- #98FB98 -->
+							<option value="LightPink">Pink</option> <!-- #FFB6C1 -->
+							<option value="LightBlue">Blue</option> <!-- #ADD8E6 -->
+						</select>
+					</p>
+					
+					<br>
+					<button id="addgoal_btn">Add</button>
+					<br>
+				</form>
+			</article>
+		</section>
+		
+		
+		
+		<!--·························· Edit goal ··························-->
+		<section role="region" id="editgoal" data-position="right">
+			<header class="fixed">
+				<a id="btn-editgoal-back" href="#"><span class="icon icon-back">back</span></a>
+ 				<h1>Edit goal</h1>
+			</header>
+			<article class="content scrollable header">
+				<br>
+				<form>
+					<p>
+						<input type="text" placeholder="Title" id="title_edit">
+					</p>
+
+					<p>
+						<textarea placeholder="About" id="about_edit"></textarea>
+					</p>
+
+					<br>
+					<p>
+						Color:
+						<select id="goal_color_edit">
+							<option value="LightGoldenRodYellow">Yellow</option> <!-- #FAFAD2 -->
+							<option value="PaleGreen">Green</option> <!-- #98FB98 -->
+							<option value="LightPink">Pink</option> <!-- #FFB6C1 -->
+							<option value="LightBlue">Blue</option> <!-- #ADD8E6 -->
+						</select>
+					</p>
+					
+					<br>
+					<button id="editgoal_btn">Save</button>
+					<button id="achieved_btn" class="recommend">Achieved!</button>
+					<button id="delete_btn" class="danger">Delete</button>
+				</form>
+			</article>
+		</section>
+		
+		
+		<!--·························· Edit achieved ··························-->
+		<section role="region" id="editachieved" data-position="right">
+			<header class="fixed">
+				<a id="btn-editachieved-back" href="#"><span class="icon icon-back">back</span></a>
+ 				<h1>Edit</h1>
+			</header>
+			<article class="content scrollable header">
+				<br>
+				<form>
+					<p>
+						<input type="text" placeholder="Title" id="title_achieved">
+					</p>
+
+					<p>
+						<textarea placeholder="About" id="about_achieved"></textarea>
+					</p>
+					<br>
+					<p>
+						Color:
+						<select id="achieved_color_edit">
+							<option value="LightGoldenRodYellow">Yellow</option> <!-- #FAFAD2 -->
+							<option value="PaleGreen">Green</option> <!-- #98FB98 -->
+							<option value="LightPink">Pink</option> <!-- #FFB6C1 -->
+							<option value="LightBlue">Blue</option> <!-- #ADD8E6 -->
+						</select>
+					</p>
+					
+					<br>
+					<button id="editachieved_btn">Save</button>
+					<button id="redo_btn" class="recommend">Redo</button>
+					<button id="deleteachieved_btn" class="danger">Delete</button>
+				</form>
+			</article>
+		</section>
+		
+		
+		<section role="region" id="about" data-position="right">
+			<header class="fixed">
+				<a id="btn-about-back" href="#"><span class="icon icon-back">back</span></a>
+				<h1>About</h1>
+			</header>
+
+			<article class="content scrollable header">
+				<header><h2>My Goals</h2></header>
+				<div>
+					<h3>Version 0.5</h3>
+					<h3>Created by Mariot Tsitoara</h3>
+				</div>
+			</article>
+		</section>
+
+		<script type="text/javascript" defer src="js/app.js"></script>
+	</body>
+</html>
+
